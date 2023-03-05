@@ -42,17 +42,13 @@ class AccompanimentMenuFragment : Fragment() {
     // Use the 'by activityViewModels()' Kotlin property delegate from the fragment-ktx artifact
     private val sharedViewModel: OrderViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAccompanimentMenuBinding.inflate(inflater, container, false)
-        val root = binding.root
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,7 +71,7 @@ class AccompanimentMenuFragment : Fragment() {
      * Cancel the order and start over.
      */
     fun cancelOrder() {
-        // TODO: Reset order in view model
+        sharedViewModel.resetOrder()
         findNavController().navigate(R.id.action_accompanimentMenu_to_startOrder)
     }
 

@@ -42,7 +42,7 @@ class OrderFunctionalityTests : BaseTest() {
      * however, it is done here for improved readability of the file.
      */
     @Test
-    fun `radio_buttons_update_entree_menu_subtotal`() {
+    fun radio_buttons_update_entree_menu_subtotal() {
         // Launch the entree menu fragment
         launchFragmentInContainer<EntreeMenuFragment>(themeResId = R.style.Theme_LunchTray)
 
