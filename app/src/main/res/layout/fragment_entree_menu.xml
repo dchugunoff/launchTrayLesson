@@ -191,7 +191,6 @@
                 app:layout_constraintTop_toTopOf="@id/next_button"
                 android:onClick="@{() -> entryMenuFragment.cancelOrder()}"/>
 
-            <!-- TODO: go to the next screen when clicked -->
             <Button
                 android:id="@+id/next_button"
                 style="@style/Widget.Order.Button.Next"
