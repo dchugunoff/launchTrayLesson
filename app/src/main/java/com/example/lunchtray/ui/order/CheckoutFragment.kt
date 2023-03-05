@@ -42,14 +42,12 @@ class CheckoutFragment : Fragment() {
     // Use the 'by activityViewModels()' Kotlin property delegate from the fragment-ktx artifact
     private val sharedViewModel: OrderViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCheckoutBinding.inflate(inflater, container, false)
         val root = binding.root
 
@@ -80,7 +78,6 @@ class CheckoutFragment : Fragment() {
      * Submit order and navigate to home screen.
      */
     fun submitOrder() {
-        // Show snackbar to "confirm" order
         Snackbar.make(binding.root, R.string.submit_order, Snackbar.LENGTH_SHORT).show()
         sharedViewModel.resetOrder()
         findNavController().navigate(R.id.action_checkout_to_startOrder)
