@@ -55,7 +55,7 @@ class NavigationTests : BaseTest() {
         // Click start order
         onView(withId(R.id.start_order_btn)).perform(click())
         // Check destination is correct
-        assertEquals(navController.currentDestination?.id, R.id.entreeMenuFragment)
+        assertEquals(navController.currentDestination?.id, R.id.entreeMenu)
     }
 
     /**
@@ -74,7 +74,7 @@ class NavigationTests : BaseTest() {
             navController.setGraph(R.navigation.mobile_navigation)
             // Destination defaults to the home fragment, we have to explicitly set the current
             // destination
-            navController.setCurrentDestination(destId = R.id.entreeMenuFragment)
+            navController.setCurrentDestination(destId = R.id.entreeMenu)
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         // Click the cancel button
@@ -99,13 +99,13 @@ class NavigationTests : BaseTest() {
             navController.setGraph(R.navigation.mobile_navigation)
             // Destination defaults to the home fragment, we have to explicitly set the current
             // destination
-            navController.setCurrentDestination(destId = R.id.entreeMenuFragment)
+            navController.setCurrentDestination(destId = R.id.entreeMenu)
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         // Click the next button
         onView(withId(R.id.next_button)).perform(click())
         // Check that the destination is correct
-        assertEquals(navController.currentDestination?.id, R.id.sideMenuFragment)
+        assertEquals(navController.currentDestination?.id, R.id.sideMenu)
     }
 
     /**
@@ -119,7 +119,7 @@ class NavigationTests : BaseTest() {
             launchFragmentInContainer<SideMenuFragment>(themeResId = R.style.Theme_LunchTray)
         sideMenuScenario.onFragment{ fragment ->
             navController.setGraph(R.navigation.mobile_navigation)
-            navController.setCurrentDestination(destId = R.id.sideMenuFragment)
+            navController.setCurrentDestination(destId = R.id.sideMenu)
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.cancel_button)).perform(click())
@@ -137,11 +137,11 @@ class NavigationTests : BaseTest() {
             launchFragmentInContainer<SideMenuFragment>(themeResId = R.style.Theme_LunchTray)
         sideMenuScenario.onFragment{ fragment ->
             navController.setGraph(R.navigation.mobile_navigation)
-            navController.setCurrentDestination(destId = R.id.sideMenuFragment)
+            navController.setCurrentDestination(destId = R.id.sideMenu)
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.next_button)).perform(click())
-        assertEquals(navController.currentDestination?.id, R.id.accompanimentMenuFragment)
+        assertEquals(navController.currentDestination?.id, R.id.accompanimentMenu)
     }
 
     /**
@@ -156,7 +156,7 @@ class NavigationTests : BaseTest() {
                 themeResId = R.style.Theme_LunchTray)
         accompanimentMenuScenario.onFragment{ fragment ->
             navController.setGraph(R.navigation.mobile_navigation)
-            navController.setCurrentDestination(destId = R.id.accompanimentMenuFragment)
+            navController.setCurrentDestination(destId = R.id.accompanimentMenu)
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.cancel_button)).perform(click())
@@ -175,11 +175,11 @@ class NavigationTests : BaseTest() {
                 themeResId = R.style.Theme_LunchTray)
         accompanimentMenuScenario.onFragment{ fragment ->
             navController.setGraph(R.navigation.mobile_navigation)
-            navController.setCurrentDestination(destId = R.id.accompanimentMenuFragment)
+            navController.setCurrentDestination(destId = R.id.accompanimentMenu)
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.next_button)).perform(click())
-        assertEquals(navController.currentDestination?.id, R.id.checkoutFragment)
+        assertEquals(navController.currentDestination?.id, R.id.checkout)
     }
 
     /**
@@ -193,7 +193,7 @@ class NavigationTests : BaseTest() {
             launchFragmentInContainer<CheckoutFragment>(themeResId = R.style.Theme_LunchTray)
         checkoutScenario.onFragment{ fragment ->
             navController.setGraph(R.navigation.mobile_navigation)
-            navController.setCurrentDestination(destId = R.id.checkoutFragment)
+            navController.setCurrentDestination(destId = R.id.checkout)
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.cancel_button)).perform(click())
@@ -211,7 +211,7 @@ class NavigationTests : BaseTest() {
             launchFragmentInContainer<CheckoutFragment>(themeResId = R.style.Theme_LunchTray)
         checkoutScenario.onFragment{ fragment ->
             navController.setGraph(R.navigation.mobile_navigation)
-            navController.setCurrentDestination(destId = R.id.checkoutFragment)
+            navController.setCurrentDestination(destId = R.id.checkout)
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.submit_button)).perform(click())

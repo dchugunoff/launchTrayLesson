@@ -72,7 +72,7 @@ class CheckoutFragment : Fragment() {
      * Cancel the order and start over.
      */
     fun cancelOrder() {
-        // TODO: Reset order in view model
+        sharedViewModel.resetOrder()
         findNavController().navigate(R.id.action_checkout_to_startOrder)
     }
 
@@ -82,8 +82,8 @@ class CheckoutFragment : Fragment() {
     fun submitOrder() {
         // Show snackbar to "confirm" order
         Snackbar.make(binding.root, R.string.submit_order, Snackbar.LENGTH_SHORT).show()
-        // TODO: Reset order in view model
-        // TODO: Navigate back to the [StartFragment] to start over
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_checkout_to_startOrder)
     }
 
     /**

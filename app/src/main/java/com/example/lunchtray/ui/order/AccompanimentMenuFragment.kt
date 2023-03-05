@@ -75,7 +75,7 @@ class AccompanimentMenuFragment : Fragment() {
      * Cancel the order and start over.
      */
     fun cancelOrder() {
-        // TODO: Reset order in view model
+        sharedViewModel.resetOrder()
         findNavController().navigate(R.id.action_accompanimentMenu_to_startOrder)
     }
 
