@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.View;
 @SuppressWarnings("unchecked")
-public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentMenuBinding  {
+public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentMenuBinding implements com.example.lunchtray.generated.callback.OnClickListener.Listener {
 
     @Nullable
     private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
@@ -14,16 +14,18 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.accompaniment_options, 10);
-        sViewsWithIds.put(R.id.divider, 11);
-        sViewsWithIds.put(R.id.subtotal, 12);
-        sViewsWithIds.put(R.id.cancel_button, 13);
-        sViewsWithIds.put(R.id.next_button, 14);
+        sViewsWithIds.put(R.id.accompaniment_options, 12);
+        sViewsWithIds.put(R.id.divider, 13);
+        sViewsWithIds.put(R.id.subtotal, 14);
     }
     // views
     @NonNull
     private final android.widget.ScrollView mboundView0;
     // variables
+    @Nullable
+    private final android.view.View.OnClickListener mCallback2;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback1;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -33,20 +35,20 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
     }
     private FragmentAccompanimentMenuBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.RadioGroup) bindings[10]
+            , (android.widget.RadioGroup) bindings[12]
             , (android.widget.RadioButton) bindings[4]
             , (android.widget.TextView) bindings[5]
             , (android.widget.TextView) bindings[6]
             , (android.widget.RadioButton) bindings[1]
             , (android.widget.TextView) bindings[2]
             , (android.widget.TextView) bindings[3]
-            , (android.widget.Button) bindings[13]
-            , (android.view.View) bindings[11]
-            , (android.widget.Button) bindings[14]
+            , (android.widget.Button) bindings[10]
+            , (android.view.View) bindings[13]
+            , (android.widget.Button) bindings[11]
             , (android.widget.RadioButton) bindings[7]
             , (android.widget.TextView) bindings[8]
             , (android.widget.TextView) bindings[9]
-            , (android.widget.TextView) bindings[12]
+            , (android.widget.TextView) bindings[14]
             );
         this.berries.setTag(null);
         this.berriesDescription.setTag(null);
@@ -54,13 +56,17 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
         this.bread.setTag(null);
         this.breadDescription.setTag(null);
         this.breadPrice.setTag(null);
+        this.cancelButton.setTag(null);
         this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);
+        this.nextButton.setTag(null);
         this.pickles.setTag(null);
         this.picklesDescription.setTag(null);
         this.picklesPrice.setTag(null);
         setRootTag(root);
         // listeners
+        mCallback2 = new com.example.lunchtray.generated.callback.OnClickListener(this, 2);
+        mCallback1 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -85,8 +91,8 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
-        if (BR.accompanimentMuneFragment == variableId) {
-            setAccompanimentMuneFragment((com.example.lunchtray.ui.order.AccompanimentMenuFragment) variable);
+        if (BR.accompanimentMenuFragment == variableId) {
+            setAccompanimentMenuFragment((com.example.lunchtray.ui.order.AccompanimentMenuFragment) variable);
         }
         else if (BR.viewModel == variableId) {
             setViewModel((com.example.lunchtray.model.OrderViewModel) variable);
@@ -97,8 +103,13 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
             return variableSet;
     }
 
-    public void setAccompanimentMuneFragment(@Nullable com.example.lunchtray.ui.order.AccompanimentMenuFragment AccompanimentMuneFragment) {
-        this.mAccompanimentMuneFragment = AccompanimentMuneFragment;
+    public void setAccompanimentMenuFragment(@Nullable com.example.lunchtray.ui.order.AccompanimentMenuFragment AccompanimentMenuFragment) {
+        this.mAccompanimentMenuFragment = AccompanimentMenuFragment;
+        synchronized(this) {
+            mDirtyFlags |= 0x1L;
+        }
+        notifyPropertyChanged(BR.accompanimentMenuFragment);
+        super.requestRebind();
     }
     public void setViewModel(@Nullable com.example.lunchtray.model.OrderViewModel ViewModel) {
         this.mViewModel = ViewModel;
@@ -124,6 +135,7 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
             mDirtyFlags = 0;
         }
         com.example.lunchtray.model.MenuItem viewModelMenuItemsBread = null;
+        com.example.lunchtray.ui.order.AccompanimentMenuFragment accompanimentMenuFragment = mAccompanimentMenuFragment;
         java.lang.String viewModelMenuItemsBerriesDescription = null;
         java.lang.String viewModelMenuItemsPicklesGetFormattedPrice = null;
         java.util.Map<java.lang.String,com.example.lunchtray.model.MenuItem> viewModelMenuItems = null;
@@ -197,13 +209,57 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.picklesDescription, viewModelMenuItemsPicklesDescription);
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.picklesPrice, viewModelMenuItemsPicklesGetFormattedPrice);
         }
+        if ((dirtyFlags & 0x4L) != 0) {
+            // api target 1
+
+            this.cancelButton.setOnClickListener(mCallback1);
+            this.nextButton.setOnClickListener(mCallback2);
+        }
     }
     // Listener Stub Implementations
     // callback impls
+    public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
+        switch(sourceId) {
+            case 2: {
+                // localize variables for thread safety
+                // accompanimentMenuFragment != null
+                boolean accompanimentMenuFragmentJavaLangObjectNull = false;
+                // accompanimentMenuFragment
+                com.example.lunchtray.ui.order.AccompanimentMenuFragment accompanimentMenuFragment = mAccompanimentMenuFragment;
+
+
+
+                accompanimentMenuFragmentJavaLangObjectNull = (accompanimentMenuFragment) != (null);
+                if (accompanimentMenuFragmentJavaLangObjectNull) {
+
+
+                    accompanimentMenuFragment.goToNextScreen();
+                }
+                break;
+            }
+            case 1: {
+                // localize variables for thread safety
+                // accompanimentMenuFragment != null
+                boolean accompanimentMenuFragmentJavaLangObjectNull = false;
+                // accompanimentMenuFragment
+                com.example.lunchtray.ui.order.AccompanimentMenuFragment accompanimentMenuFragment = mAccompanimentMenuFragment;
+
+
+
+                accompanimentMenuFragmentJavaLangObjectNull = (accompanimentMenuFragment) != (null);
+                if (accompanimentMenuFragmentJavaLangObjectNull) {
+
+
+                    accompanimentMenuFragment.cancelOrder();
+                }
+                break;
+            }
+        }
+    }
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): accompanimentMuneFragment
+        flag 0 (0x1L): accompanimentMenuFragment
         flag 1 (0x2L): viewModel
         flag 2 (0x3L): null
     flag mapping end*/

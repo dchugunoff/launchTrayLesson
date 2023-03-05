@@ -66,7 +66,7 @@ public abstract class FragmentAccompanimentMenuBinding extends ViewDataBinding {
   protected OrderViewModel mViewModel;
 
   @Bindable
-  protected AccompanimentMenuFragment mAccompanimentMuneFragment;
+  protected AccompanimentMenuFragment mAccompanimentMenuFragment;
 
   protected FragmentAccompanimentMenuBinding(Object _bindingComponent, View _root,
       int _localFieldCount, RadioGroup accompanimentOptions, RadioButton berries,
@@ -98,12 +98,12 @@ public abstract class FragmentAccompanimentMenuBinding extends ViewDataBinding {
     return mViewModel;
   }
 
-  public abstract void setAccompanimentMuneFragment(
-      @Nullable AccompanimentMenuFragment accompanimentMuneFragment);
+  public abstract void setAccompanimentMenuFragment(
+      @Nullable AccompanimentMenuFragment accompanimentMenuFragment);
 
   @Nullable
-  public AccompanimentMenuFragment getAccompanimentMuneFragment() {
-    return mAccompanimentMuneFragment;
+  public AccompanimentMenuFragment getAccompanimentMenuFragment() {
+    return mAccompanimentMenuFragment;
   }
 
   @NonNull
