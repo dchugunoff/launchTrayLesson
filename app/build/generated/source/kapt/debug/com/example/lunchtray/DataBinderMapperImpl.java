@@ -130,7 +130,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
     static {
       sKeys.put(0, "_all");
-      sKeys.put(1, "accompanimentMuneFragment");
+      sKeys.put(1, "accompanimentMenuFragment");
       sKeys.put(2, "checkoutFragment");
       sKeys.put(3, "entryMenuFragment");
       sKeys.put(4, "sideMenuFragment");
