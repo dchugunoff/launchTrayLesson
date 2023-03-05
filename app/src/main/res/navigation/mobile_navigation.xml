@@ -16,7 +16,69 @@
   -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mobile_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/startOrder">
+
+    <fragment
+        android:id="@+id/startOrder"
+        android:name="com.example.lunchtray.ui.order.StartOrderFragment"
+        tools:layout="@layout/fragment_start_order"
+        android:label="@string/tile_start_order">
+
+        <action
+            android:id="@+id/action_startOrder_to_entreeMenu"
+            app:destination="@id/entreeMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/entreeMenu"
+        android:name="com.example.lunchtray.ui.order.EntreeMenuFragment"
+        tools:layout="@layout/fragment_entree_menu"
+        android:label="@string/title_entree_menu">
+
+        <action
+            android:id="@+id/action_entreeMenu_to_sideMenu"
+            app:destination="@id/sideMenu" />
+        <action
+            android:id="@+id/action_entreeMenu_to_startOrder"
+            app:destination="@id/startOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/sideMenu"
+        android:name="com.example.lunchtray.ui.order.SideMenuFragment"
+        tools:layout="@layout/fragment_side_menu"
+        android:label="@string/title_side_menu">
+
+        <action
+            android:id="@+id/action_sideMenu_to_accompanimentMenu"
+            app:destination="@id/accompanimentMenu" />
+        <action
+            android:id="@+id/action_sideMenu_to_startOrder"
+            app:destination="@id/startOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/accompanimentMenu"
+        android:name="com.example.lunchtray.ui.order.AccompanimentMenuFragment"
+        tools:layout="@layout/fragment_accompaniment_menu"
+        android:label="@string/title_accompaniment_menu">
+
+        <action
+            android:id="@+id/action_accompanimentMenu_to_checkout"
+            app:destination="@id/checkout" />
+        <action
+            android:id="@+id/action_accompanimentMenu_to_startOrder"
+            app:destination="@id/startOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkout"
+        android:name="com.example.lunchtray.ui.order.CheckoutFragment"
+        tools:layout="@layout/fragment_checkout"
+        android:label="@string/title_checkout">
+
+        <action
+            android:id="@+id/action_checkout_to_startOrder"
+            app:destination="@id/startOrder" />
+    </fragment>
 
 
 </navigation>
